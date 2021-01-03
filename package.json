@@ -1,0 +1,40 @@
+{
+  "name": "rabbithole-ext",
+  "version": "1.0.0",
+  "description": "Get lost in a rabbithole",
+  "main": "browser-polyfill.min.js",
+  "dependencies": {
+    "webextension-polyfill": "^0.7.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "elm": "^0.19.1-3",
+    "elm-format": "^0.8.4",
+    "elm-oracle": "^1.1.1",
+    "npm-run-all": "^4.1.5",
+    "npm-watch": "^0.7.0"
+  },
+  "watch": {
+      "elm-background-build": {
+          "patterns": [
+              "src"
+          ],
+          "extensions": "elm",
+          "quiet": false
+      },
+      "elm-popup-build": {
+          "patterns": [
+              "src"
+          ],
+          "extensions": "elm",
+          "quiet": false
+      }
+  },
+  "scripts": {
+    "firefox": "cd src; web-ext run",
+    "elm-background-build": "cd src; elm make elm/Background.elm --output background.js",
+    "elm-popup-build": "cd src; elm make elm/Popup.elm --output popup/script.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
